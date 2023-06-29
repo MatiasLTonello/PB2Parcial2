@@ -1,0 +1,41 @@
+package ar.edu.unlam;
+
+public class Usuario {
+    private String email;
+    private String nombre;
+    private Integer edad;
+    private Rol rol;
+
+    public Usuario(String email, String nombre, Integer edad) {
+        this.email = email;
+        this.nombre = nombre;
+        this.setEdad(edad);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public void convertirseEnOrganizador(Evento evento) {
+		rol = new Organizador(evento);
+		
+	}
+
+
+}

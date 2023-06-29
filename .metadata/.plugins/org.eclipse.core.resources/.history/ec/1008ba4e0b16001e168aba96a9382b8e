@@ -1,0 +1,14 @@
+package ar.edu.unlam;
+
+public class Casamiento extends Evento {
+    private List<Usuario>agasajado;
+
+    public Casamiento(String nombre, Usuario agasajado, Usuario agasajada) {
+        super(nombre, agasajado);
+        this.agasajada = agasajada;
+    }
+
+    public Usuario getAgasajada() {
+        return agasajada;
+    }
+}

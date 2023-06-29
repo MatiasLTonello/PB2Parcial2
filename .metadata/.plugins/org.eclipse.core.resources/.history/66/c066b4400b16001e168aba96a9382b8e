@@ -1,0 +1,13 @@
+package ar.edu.unlam;
+
+public class Cumple extends Evento {
+    public Cumple(String nombre, Usuario agasajado) {
+        super(nombre, agasajado);
+    }
+
+	@Override
+	protected void add(Agasajado agasajado) {
+		// TODO Auto-generated method stub
+		
+	}
+}

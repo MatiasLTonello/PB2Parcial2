@@ -1,0 +1,16 @@
+package ar.edu.unlam;
+
+public class Cumple extends Evento {
+	Usuario agasajado;
+    public Cumple(String nombre, Usuario agasajado) {
+        super(nombre);
+        this.agasajado = agasajado;
+    }
+
+	@Override
+	protected void add(Agasajado agasajado) {
+		if(agasajado == null) {
+			setAgasajado(agasajado);
+		}
+	}
+}

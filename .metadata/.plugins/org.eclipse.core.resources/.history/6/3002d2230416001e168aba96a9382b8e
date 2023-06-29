@@ -1,0 +1,20 @@
+package ar.edu.unlam;
+
+import java.util.HashSet;
+
+public class PlanificadorDeEventos {
+
+	private HashSet <Usuario> usuarios;
+
+	public Boolean add(Usuario persona) {
+		return usuarios.add(persona);
+	}
+
+	public Usuario getUsuario(String mailOrganizador) {
+		for(Usuario usuario: usuarios) {
+			if(usuario.getEmail().equals(mailOrganizador)) {
+				return usuario;
+			}
+		}
+	}
+}

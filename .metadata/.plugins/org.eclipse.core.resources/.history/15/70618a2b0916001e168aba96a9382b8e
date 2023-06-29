@@ -1,0 +1,72 @@
+package ar.edu.unlam;
+
+
+import java.util.HashSet;
+
+public class PlanificadorDeEventos {
+    private HashSet<Usuario> usuarios;
+    private HashSet<Evento> eventos;
+
+    public PlanificadorDeEventos() {
+        usuarios = new HashSet<>();
+        eventos = new HashSet<>();
+    }
+
+    public void add(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+    
+
+    public Integer getCantidadDeUsuarios() {
+        return usuarios.size();
+    }
+
+    public Integer getCantidadDeEventos() {
+        return eventos.size();
+    }
+
+    public void crear(Usuario organizador, Evento evento, Usuario agasajado) {
+        eventos.add(evento);
+        organizador.convertirseEnOrganizador(evento);
+        evento.agregarInvitado(agasajado);
+    }
+
+    public Usuario getUsuario(String email) throws UsuarioInexistente {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getEmail().equals(email)) {
+                return usuario;
+            }
+        }
+        throw new UsuarioInexistente("No existe ese usuario");
+    }
+    
+    public Integer getCantidadDeCumpleanios() {
+        int cantidadCumpleanios = 0;
+        for (Evento evento : eventos) {
+            if (evento instanceof Cumple) {
+                cantidadCumpleanios++;
+            }
+        }
+        return cantidadCumpleanios;
+    }
+
+    public Integer getCantidadDeCasamientos() {
+        int cantidadCasamientos = 0;
+        for (Evento evento : eventos) {
+            if (evento instanceof Casamiento) {
+                cantidadCasamientos++;
+            }
+        }
+        return cantidadCasamientos;
+    }
+
+    public Evento getEvento(String nombre) {
+        for (Evento evento : eventos) {
+            if (evento.getNombre().equals(nombre)) {
+                return evento;
+            }
+        }
+        return null;
+    }
+}
+

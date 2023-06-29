@@ -1,0 +1,81 @@
+package ar.edu.unlam;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Evento {
+    private String nombre;
+    private Usuario agasajado;
+    private List<Usuario> invitados;
+    private List<Usuario> asistentes;
+
+    public Evento(String nombre) {
+        this.nombre = nombre;
+        this.invitados = new ArrayList<>();
+        this.asistentes = new ArrayList<>();
+    }
+    
+    public Evento() {
+    	 this.invitados = new ArrayList<>();
+        this.asistentes = new ArrayList<>();
+    }
+    
+    public Usuario buscarInvitado(String email) throws UsuarioInexistente {
+		for(Usuario invitado: invitados) {
+			if(invitado.getEmail().equals(email)) {
+				return invitado;
+			}
+		}
+		throw new UsuarioInexistente("No existe usuario con ese mail");
+	}
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Usuario getAgasajado() {
+        return agasajado;
+    }
+
+    public Integer getInvitados() {
+    	return this.invitados.size();
+    }
+    public void setAgasajado(Usuario agasajado) {
+        this.agasajado = agasajado;
+    }
+
+    public Boolean agregarInvitado(Usuario invitado) {
+       return invitados.add(invitado);
+    }
+
+    public void removerInvitado(Usuario invitado) {
+        invitados.remove(invitado);
+    }
+
+    public void confirmarAsistencia(Usuario usuario) {
+        if (this.buscarInvitado(usuario.getEmail())) {
+            asistentes.add(usuario);
+        }
+    }
+
+    public Usuario getOrganizador() {
+        for (Usuario invitado : invitados) {
+            if (invitado.getEventoOrganizado() == this) {
+                return invitado;
+            }
+        }
+        return null;
+    }
+//    public List<Usuario> getInvitadosOrdenados() {
+//        List<Usuario> invitadosOrdenados = new ArrayList<>(invitados);
+//        invitadosOrdenados.sort(Comparator.comparing(Usuario::getNombre));
+//        return invitadosOrdenados;
+//    }
+
+	protected abstract void add(Usuario usuario);
+
+	public Integer getInvitadosConfirmados() {
+		return asistentes.size();
+	}
+
+}

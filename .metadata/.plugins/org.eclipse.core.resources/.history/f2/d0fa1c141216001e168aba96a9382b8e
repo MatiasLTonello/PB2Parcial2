@@ -1,0 +1,106 @@
+package ar.edu.unlam;
+
+
+import java.util.HashSet;
+
+public class PlanificadorDeEventos {
+    private HashSet<Usuario> usuarios;
+    private HashSet<Evento> eventos;
+
+    public PlanificadorDeEventos() {
+        usuarios = new HashSet<>();
+        eventos = new HashSet<>();
+    }
+
+    public void add(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+    
+
+    public Integer getCantidadDeUsuarios() {
+        return usuarios.size();
+    }
+
+    public Integer getCantidadDeEventos() {
+        return eventos.size();
+    }
+
+    public void crear(Usuario organizador, Evento evento) {
+    	Evento cumple = new Cumple(evento.getNombre(), organizador);
+        eventos.add(cumple);
+        this.add(evento.getAgasajado());
+        organizador.convertirseEnOrganizador(evento);
+    }
+
+    public Usuario getUsuario(String email) throws UsuarioInexistente {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getEmail().equals(email)) {
+                return usuario;
+            }
+        }
+        throw new UsuarioInexistente("No existe ese usuario");
+    }
+    
+    public Integer getCantidadDeCumpleanios() {
+        int cantidadCumpleanios = 0;
+        for (Evento evento : eventos) {
+            if (evento instanceof Cumple) {
+                cantidadCumpleanios++;
+            }
+        }
+        return cantidadCumpleanios;
+    }
+
+    public Integer getCantidadDeCasamientos() {
+        int cantidadCasamientos = 0;
+        for (Evento evento : eventos) {
+            if (evento instanceof Casamiento) {
+                cantidadCasamientos++;
+            }
+        }
+        return cantidadCasamientos;
+    }
+
+    public Evento getEvento(String nombre) {
+        for (Evento evento : eventos) {
+            if (evento.getNombre().equals(nombre)) {
+                return evento;
+            }
+        }
+        return null;
+    }
+
+    public void crear(Usuario organizador, String nombreEvento) {
+        Evento casamiento = new Casamiento(nombreEvento);
+       	eventos.add(casamiento);
+       	usuarios.add(organizador);
+    }
+
+	public Boolean invitar(Evento evento, Usuario usuario) {
+		return evento.agregarInvitado(usuario);
+	}
+	
+	public Integer getCantidadDeInvitados() {
+		Integer invitados = 0;
+		for(Evento evento: eventos) {
+			invitados += evento.getInvitados();
+		}
+		return invitados;
+	}
+
+	public void confirmar(Cumple elCumpleDeLeo, Usuario elKun) throws UsuarioInexistente {
+		
+		Usuario invitado = elCumpleDeLeo.buscarInvitado(elKun.getEmail());
+		elCumpleDeLeo.confirmarAsistencia(invitado);
+	}
+
+	public Integer getCantidadDeInvitadosConfirmados() {
+		Integer confirmados = 0;
+		for(Evento evento: eventos) {
+			confirmados += evento.getInvitadosConfirmados();
+		}
+		return confirmados;
+	}
+	}
+}
+

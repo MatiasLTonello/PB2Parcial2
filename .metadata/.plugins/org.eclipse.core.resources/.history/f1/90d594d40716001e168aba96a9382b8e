@@ -1,0 +1,50 @@
+package ar.edu.unlam;
+
+
+import java.util.HashSet;
+
+public class PlanificadorDeEventos {
+    private HashSet<Usuario> usuarios;
+    private HashSet<Evento> eventos;
+
+    public PlanificadorDeEventos() {
+        usuarios = new HashSet<>();
+        eventos = new HashSet<>();
+    }
+
+    public void add(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+
+    public Integer getCantidadDeUsuarios() {
+        return usuarios.size();
+    }
+
+    public Integer getCantidadDeEventos() {
+        return eventos.size();
+    }
+
+    public void crear(Usuario organizador, Evento evento) {
+        eventos.add(evento);
+//        organizador.convertirseEnOrganizador(evento);
+    }
+
+    public Usuario getUsuario(String email) throws UsuarioInexistente {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getEmail().equals(email)) {
+                return usuario;
+            }
+        }
+        throw new UsuarioInexistente("No existe ese usuario");
+    }
+
+    public Evento getEvento(String nombre) {
+        for (Evento evento : eventos) {
+            if (evento.getNombre().equals(nombre)) {
+                return evento;
+            }
+        }
+        return null;
+    }
+}
+

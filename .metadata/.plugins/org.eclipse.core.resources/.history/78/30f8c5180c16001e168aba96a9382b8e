@@ -1,0 +1,78 @@
+package ar.edu.unlam;
+
+
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PlanificadorDeEventos {
+    private HashSet<Usuario> usuarios;
+    private Map<Organizador, Evento> eventos;
+
+    public PlanificadorDeEventos() {
+        usuarios = new HashSet<>();
+        eventos = new HashMap<>();
+    }
+
+    public void add(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+    
+
+    public Integer getCantidadDeUsuarios() {
+        return usuarios.size();
+    }
+
+    public Integer getCantidadDeEventos() {
+        return eventos.size();
+    }
+
+    public void crear(Organizador organizador, Evento evento) {
+        eventos.put(organizador, evento);
+        this.add(evento.getAgasajado());
+        organizador.convertirseEnOrganizador(evento);
+    }
+
+    public Usuario getUsuario(String email) throws UsuarioInexistente {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getEmail().equals(email)) {
+                return usuario;
+            }
+        }
+        throw new UsuarioInexistente("No existe ese usuario");
+    }
+    
+    public Integer getCantidadDeCumpleanios() {
+        int cantidadCumpleanios = 0;
+        for (Evento evento : eventos) {
+            if (evento instanceof Cumple) {
+                cantidadCumpleanios++;
+            }
+        }
+        return cantidadCumpleanios;
+    }
+
+    public Integer getCantidadDeCasamientos() {
+        int cantidadCasamientos = 0;
+        for (Evento evento : eventos) {
+            if (evento instanceof Casamiento) {
+                cantidadCasamientos++;
+            }
+        }
+        return cantidadCasamientos;
+    }
+
+    public Evento getEvento(String nombre) {
+        for (Evento evento : eventos) {
+            if (evento.getNombre().equals(nombre)) {
+                return evento;
+            }
+        }
+        return null;
+    }
+
+	public void crear(Usuario usuario, String nombreDelEvento) {
+		
+	}
+}
+

@@ -1,0 +1,13 @@
+package ar.edu.unlam;
+
+public class Organizador extends Rol {
+    private Evento evento;
+
+    public Organizador(Evento evento) {
+        this.evento = evento;
+    }
+
+    // Propiedades específicas del rol de Organizador (si las hay)
+
+    // Métodos específicos del rol de Organizador (si los hay)
+}

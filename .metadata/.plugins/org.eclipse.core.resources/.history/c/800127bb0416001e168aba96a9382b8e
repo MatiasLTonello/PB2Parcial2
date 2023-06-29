@@ -1,0 +1,9 @@
+package ar.edu.unlam;
+
+public class Cumple extends Evento {
+
+	public Cumple(String nombreDelEvento) {
+		super(nombreDelEvento);
+	}
+
+}

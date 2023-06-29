@@ -1,0 +1,31 @@
+package ar.edu.unlam;
+
+public abstract class Persona {
+
+	public Usuario(String eMail, String nombre, String edad) {
+		this.eMail = eMail;
+		this.nombre = nombre;
+		this.edad = edad;
+	}
+	public String geteMail() {
+		return eMail;
+	}
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getEdad() {
+		return edad;
+	}
+	public void setEdad(String edad) {
+		this.edad = edad;
+	}
+	private String eMail;
+	private String nombre;
+	private String edad;
+}

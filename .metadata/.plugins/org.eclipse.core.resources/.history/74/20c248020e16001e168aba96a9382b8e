@@ -1,0 +1,30 @@
+package ar.edu.unlam;
+
+import java.util.List;
+import java.util.ArrayList;
+
+
+public class Casamiento extends Evento {
+    private List<Usuario>agasajados;
+
+    public Casamiento(String nombre) {
+        super(nombre);
+        agasajados = new ArrayList<>();
+    }
+
+
+    public Integer getCantidadDeAgasajados() {
+    	return agasajados.size();
+    }
+    
+    public Usuario[] getAgasajados() {
+    	return agasajados;
+    }
+	@Override
+	protected void add(Usuario agasajado) {
+		if(agasajados.size() < 2) {
+			agasajados.add(agasajado);
+			
+		}
+	}
+}

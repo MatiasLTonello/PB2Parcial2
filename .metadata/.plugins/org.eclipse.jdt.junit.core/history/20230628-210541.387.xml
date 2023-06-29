@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Prueba" project="PB2-TN-Matias-Tonello" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="ar.edu.unlam.Prueba" time="0.001">
+    <testcase name="queSePuedaInvitarGenteAUnCumpleanios" classname="ar.edu.unlam.Prueba" time="0.001"/>
+    <testcase name="queSePuedaCrearUnCasamiento" classname="ar.edu.unlam.Prueba" time="0.0"/>
+    <testcase name="queSePuedaCrearUnCumpleanios" classname="ar.edu.unlam.Prueba" time="0.0"/>
+  </testsuite>
+</testrun>

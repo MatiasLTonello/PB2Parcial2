@@ -1,0 +1,10 @@
+package ar.edu.unlam;
+
+public class Organizador extends Usuario {
+
+	public Organizador(String eMail, String nombre, String edad) {
+		super(eMail, nombre, edad);
+		// TODO Auto-generated constructor stub
+	}
+
+}

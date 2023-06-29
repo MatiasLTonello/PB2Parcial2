@@ -1,0 +1,15 @@
+package ar.edu.unlam;
+
+public abstract class Evento {
+
+	protected String nombreDelEvento;
+	protected Usuario agasajado;
+	
+	
+	public Evento(String nombreDelEvento, Usuario agasajado) {
+		super();
+		this.nombreDelEvento = nombreDelEvento;
+	}
+	
+	
+}

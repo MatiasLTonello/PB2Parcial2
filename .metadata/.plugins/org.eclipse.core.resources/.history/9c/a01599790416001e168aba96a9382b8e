@@ -1,0 +1,7 @@
+package ar.edu.unlam;
+
+public abstract class Evento {
+
+	private String nombreDelEvento;
+	
+}

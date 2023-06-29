@@ -1,0 +1,25 @@
+package ar.edu.unlam;
+
+import java.util.HashSet;
+
+public class PlanificadorDeEventos {
+    private List<Usuario> usuarios;
+    private List<Evento> eventos;
+
+    public PlanificadorDeEventos() {
+        usuarios = new ArrayList<>();
+        eventos = new ArrayList<>();
+    }
+
+    public void add(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+
+    public int getCantidadDeUsuarios() {
+        return usuarios.size();
+    }
+
+    public int getCantidadDeEventos() {
+        return eventos.size();
+    }
+

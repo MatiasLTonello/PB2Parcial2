@@ -1,0 +1,19 @@
+package ar.edu.unlam;
+
+import java.util.List;
+
+public class Casamiento extends Evento {
+    private List<Usuario>agasajado;
+
+    public Casamiento(String nombre) {
+        super(nombre);
+        
+    }
+
+
+	@Override
+	protected void add(Agasajado agasajado) {
+		// TODO Auto-generated method stub
+		
+	}
+}

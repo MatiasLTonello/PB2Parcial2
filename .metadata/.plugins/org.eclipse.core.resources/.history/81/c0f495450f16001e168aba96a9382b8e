@@ -1,0 +1,60 @@
+package ar.edu.unlam;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Evento {
+    private String nombre;
+    private Usuario agasajado;
+    private List<Usuario> invitados;
+    private List<Usuario> asistentes;
+
+    public Evento(String nombre) {
+        this.nombre = nombre;
+        invitados = new ArrayList<>();
+        asistentes = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Usuario getAgasajado() {
+        return agasajado;
+    }
+
+    public void setAgasajado(Usuario agasajado) {
+        this.agasajado = agasajado;
+    }
+
+    public void agregarInvitado(Usuario invitado) {
+        invitados.add(invitado);
+    }
+
+    public void removerInvitado(Usuario invitado) {
+        invitados.remove(invitado);
+    }
+
+    public void confirmarAsistencia(Usuario usuario) {
+        if (invitados.contains(usuario)) {
+            asistentes.add(usuario);
+        }
+    }
+
+    public Usuario getOrganizador() {
+        for (Usuario invitado : invitados) {
+            if (invitado.getEventoOrganizado() == this) {
+                return invitado;
+            }
+        }
+        return null;
+    }
+//    public List<Usuario> getInvitadosOrdenados() {
+//        List<Usuario> invitadosOrdenados = new ArrayList<>(invitados);
+//        invitadosOrdenados.sort(Comparator.comparing(Usuario::getNombre));
+//        return invitadosOrdenados;
+//    }
+
+	protected abstract void add(Usuario usuario);
+
+}

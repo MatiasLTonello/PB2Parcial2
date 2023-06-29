@@ -1,0 +1,8 @@
+package ar.edu.unlam;
+
+public class Usuario {
+
+	private String eMail;
+	private String nombre;
+	private String edad;
+}

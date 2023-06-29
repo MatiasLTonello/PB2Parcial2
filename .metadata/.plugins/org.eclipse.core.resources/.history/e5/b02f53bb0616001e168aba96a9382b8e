@@ -1,0 +1,18 @@
+package ar.edu.unlam;
+
+public abstract class Evento {
+
+	protected Usuario agasajado;
+	protected Usuario organizador;
+	
+	public Evento() {
+		
+	}
+
+	public Object getNombre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}

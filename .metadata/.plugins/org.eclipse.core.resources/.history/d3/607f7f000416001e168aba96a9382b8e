@@ -1,0 +1,12 @@
+package ar.edu.unlam;
+
+import java.util.HashSet;
+
+public class PlanificadorDeEventos {
+
+	private HashSet <Usuario> usuarios;
+
+	public Boolean add(Usuario persona) {
+		return usuarios.add(persona);
+	}
+}
