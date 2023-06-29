@@ -28,7 +28,9 @@ public class PlanificadorDeEventos {
     public void crear(Usuario organizador, Evento evento) {
     	Evento cumple = new Cumple(evento.getNombre(), organizador);
         eventos.add(cumple);
+        cumple.agregarInvitado(organizador);
         this.add(evento.getAgasajado());
+        organizador.convertirseEnOrganizador(evento);
     }
 
     public Usuario getUsuario(String email) throws UsuarioInexistente {

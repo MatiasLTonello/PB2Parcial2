@@ -9,7 +9,6 @@ public abstract class Evento {
     private Usuario agasajado;
     private List<Usuario> invitados;
     private List<Usuario> asistentes;
-    private Usuario organizador;
 
     public Evento(String nombre) {
         this.nombre = nombre;

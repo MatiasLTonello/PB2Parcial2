@@ -26,8 +26,9 @@ public class PlanificadorDeEventos {
     }
 
     public void crear(Usuario organizador, Evento evento) {
-    	Evento cumple = new Cumple(evento.getNombre(), organizador);
+    	Evento cumple = new Cumple(evento.getNombre(), agasajado);
         eventos.add(cumple);
+        cumple.agregarInvitado(agasajado);
         this.add(evento.getAgasajado());
     }
 
